@@ -3,16 +3,20 @@ import usb_hid
 from adafruit_hid.keyboard import Keyboard
 from adafruit_hid.keycode import Keycode
 
-# Crie um objeto Keyboard
+# Inicializar o teclado
 keyboard = Keyboard(usb_hid.devices)
 
-# Emule a digitação da string "Hello, World!"
-keyboard.press(Keycode.H)
-keyboard.release_all()
-time.sleep(0.1)
-keyboard.press(Keycode.E)
-keyboard.release_all()
-# ... continue com outras teclas
+while True:
+    # Digitar "felipe"
+    keyboard.send(Keycode.F)
+    keyboard.send(Keycode.E)
+    keyboard.send(Keycode.L)
+    keyboard.send(Keycode.I)
+    keyboard.send(Keycode.P)
+    keyboard.send(Keycode.E)
 
-# Espere um pouco antes de desconectar
-time.sleep(2)
+    # Adicionar um espaço após "felipe" ou pular linha se desejar
+    keyboard.send(Keycode.SPACE)
+
+    # Aguardar um tempo antes de repetir
+    time.sleep(0.1)
