@@ -31,6 +31,9 @@ int main(void) {
                 state = 2;
                 break;
             case 2:
+                char command[255];
+                sprintf(command, "%s%s", "./../build/SimpleNES ../games/", name_file);
+                system(command);
                 printf("%s\n", name_file);
                 state = 0;
                 break;
